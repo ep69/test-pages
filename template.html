@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="Collegiate shag in Brno.">
+<meta name="keywords" content="swing,dance,shag,collegiate shag,Brno">
+<meta property="og:image" content="shag-cz.webp">
+
+<title>Collegiate Shag in Brno</title>
+<link rel="icon" type="image/png" href="shag-cz-32x32.png" sizes="32x32">
+
+<style>
+:root {
+    --red:#fe5f5e;
+    --white:#f8f5f0;
+}
+
+@font-face {
+    font-family: 'Sawarabi';
+    src: url(sawarabi-gothic.ttf) format('truetype');
+}
+
+html {
+    font-family: 'Sawarabi', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    background-color: var(--white);
+    overflow: scroll;
+    overflow-x: scroll;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 200;
+    font-stretch: condensed;
+    line-height: 1.4;
+    //font-size: 20pt;
+    font-size: min(20pt, 5vw);
+    margin: 0;
+}
+img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+a {
+    text-decoration: none;
+    padding: 0.2em;
+}
+a:link {
+    color: var(--red);
+}
+a:visited {
+    color: var(--red);
+}
+a:hover {
+    color: var(--white);
+    background-color: var(--red);
+    border-radius: 0.5em;
+}
+#logo {
+    max-width: 80vw;
+    max-height: 40vh;
+    margin: 2em;
+}
+h1 {
+    font-size: min(2.5em, 8vw);
+}
+h2 {
+    font-size: min(1.5em, 6vw);
+    color: var(--red);
+}
+</style>
+
+</head>
+
+<body>
+    <div id="logo">
+        <img src="shag-cz.webp" alt="logo">
+    </div>
+    <h1>Collegiate Shag in Brno</h1>
+    <ul>
+        <li>Regular courses in <a href="https://swingwings.cz">SwingWings dance school</a></li>
+        <li>Social networks: <a href="https://www.instagram.com/shag.cz/">Instagram</a></li>
+        <li>Festival: <a href="https://www.absolutelyshag.cz">Absolutely Shag!</a></li>
+        <li>and much more in our <a href="https://calendar.google.com/calendar/embed?src=2bc0ae0d9e4d0d8567858f3d78b8d7e2d87d2dcc41cb430f07a0c1efbe65efc9%40group.calendar.google.com&ctz=Europe%2FPrague">calendar</a></li>
+    </ul>
+    <div id="events">
+    <h2>Upcoming events:</h2>
+    <ul>
+    {% for event in events %}
+        <li>
+            {{ event.when }}: {{ event.summary }}
+        </li>
+    {% endfor %}
+    </ul>
+    </div>
+</body>
+<!-- Generated {{ date }} -->
+

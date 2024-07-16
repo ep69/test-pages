@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Generate and deploy static content to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -33,10 +33,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Generate index.html
+        env:
+          GAPI_KEY: ${{ secrets.GAPI_KEY }}
+        run: |
+          sudo apt-get install -y python3 python3-jinja2 python3-googleapi
+          python3 cal-to-csv.py
+          rm -f cal-to-csv.py
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
